@@ -9,9 +9,6 @@ import ListGames from "../components/ListGames";
 export default function wishlist() {
     const [games, setGames] = useState(null);
     const {auth, logout} = useAuth();
-
-
-
     useEffect(() => {
         (async () => {
             const response = await getFavoriteApi(auth.idUser, logout);
@@ -39,7 +36,7 @@ export default function wishlist() {
                             <h3>No tienes ningun juego en tu lista</h3>
                         </div>
                     )}
-                    {size(games)> 0 && <ListGames games={games} />}
+                    {size(games)> 0 && <ListGames games={games}/>}
                 </div>
             </div>
         </BasicaLayout>

@@ -30,7 +30,7 @@ export default function CarouselScreenshots(props) {
                     onClick={ () => openImagen(screenshot.url)}/>
                 ))}
             </Slider>
-            <Modal open={showModal} onClose={() => setShowModal(false)} size="largo">
+            <Modal open={showModal} onClose={() => setShowModal(false)} size="large">
                 <Image src={urlImage} alt={title} />
             </Modal>
         </>
