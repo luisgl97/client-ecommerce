@@ -26,7 +26,7 @@ export default function ListGames(props) {
         <div className="list-games">
            <Grid>
                <Grid.Row columns={getColumnsRender()}>
-               {map(games, (game) =>(
+               {games?.map((game) =>(
                 <Game game={game} key={game.id}/>
                 ))}
                </Grid.Row>
@@ -41,21 +41,21 @@ function Game(props){
     
     return(
         <Grid.Column className="list-games__game">
-            <Link href={`/${game.url}`}>
+            <Link href={`/${game?.url}`}>
                 <a>
                     <div className="list-games__game-poster">
-                        <Image src={game.poster.url} alt={game.title} />
+                        <Image src={game?.poster.url} alt={game?.title} />
                         <div className="list-games__game-poster-info">
-                            {game.discount ? (
-                                <span className="discount">-{game.discount}%</span>
+                            {game?.discount ? (
+                                <span className="discount">-{game?.discount}%</span>
                             ):(
                                 <span></span>
                             )}
-                            <span className="price">{(game.price - Math.floor(game.price*game.discount)/100).toFixed(2)}$</span>
+                            <span className="price">{(game?.price - Math.floor(game?.price*game?.discount)/100).toFixed(2)}$</span>
 
                         </div>
                     </div>
-                    <h2>{game.title}</h2>
+                    <h2>{game?.title}</h2>
                 </a>
             </Link>
         </Grid.Column>
