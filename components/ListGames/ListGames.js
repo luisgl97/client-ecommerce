@@ -21,7 +21,7 @@ export default function ListGames(props) {
                 return 1;
         }
     }
-
+    //Patrón Iterator
     return (
         <div className="list-games">
            <Grid>
