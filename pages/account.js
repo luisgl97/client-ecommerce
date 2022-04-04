@@ -12,19 +12,19 @@ import AddressForm from '../components/Account/AddressForm/AddressForm';
 import ListAddress from '../components/Account/ListAddress/ListAddress';
 
 export default function Account() {
-    const [user, setUser] = useState(undefined);
-    const {auth, logout, setReloadUser} = useAuth();
+    const [user, setUser] = useState(undefined); 
+    const {auth, logout, setReloadUser} = useAuth(); 
     const router = useRouter();
 
     useEffect(() => {
         ( async()=> {
             const response = await getMeApi(logout);
-            setUser(response || null);
+            setUser(response || null);//si hay sesion, se guarda en el state
         })()
     }, [auth]);
 
     if(user === undefined) return null;
-    if(!auth && !user){
+    if(!auth && !user){ 
         router.replace("/");
         return null;
     }
