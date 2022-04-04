@@ -10,6 +10,7 @@ export default function ListAddress(props) {
     const {auth, logout} = useAuth();
     // console.log(addresses);
 
+    //Patrón Observer
     useEffect(() => {
        (async ()=> {
            const response = await getAddressesApi(auth.idUser, logout);
