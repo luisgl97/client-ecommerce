@@ -35,7 +35,7 @@ function Info(props){
 
     useEffect(() => {
        (async () =>{
-        const response = await isFavoriteApi(auth.idUser,game.id, logout);
+        const response = await isFavoriteApi(auth?.idUser,game.id, logout);
         if(size(response)>0) setIsFavorite(true);
         else setIsFavorite(false);
        })();
