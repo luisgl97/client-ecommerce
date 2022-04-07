@@ -5,7 +5,6 @@ import Link from "next/link";
 import classNames from "classnames";
 import { getAddressesApi } from "../../../api/address";
 import useAuth from '../../../hooks/useAuth';
-import { useLayoutEffect } from 'react/cjs/react.production.min';
 
 export default function AddressShipping(props) {
     const {setAddress} = props;
@@ -26,9 +25,9 @@ export default function AddressShipping(props) {
                 {size(addresses) === 0 ? (
                     <h3>  
                         No hay ninguna dirección creada{" "}
-                        <link href='/account'>
+                        <Link href='/account'>
                             <a>añadir tu primera dirección</a>
-                        </link>
+                        </Link>
                     </h3>
                 ) : (
                     <Grid>
@@ -50,7 +49,7 @@ export default function AddressShipping(props) {
 }
 
 function Address(props) {
-    const { address, addressActive, setAddressActive, setAddresses } = props;
+    const { address, addressActive, setAddressActive, setAddress } = props;
 
     const changeAddress = () => {
         setAddressActive(address._id);

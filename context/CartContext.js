@@ -5,7 +5,7 @@ const CartContext = createContext({
     addProduct: () => null,
     getProductsCart: () => null,
     removeProductCart: () => null,
-    remveAllProductsCart: () => null
+    removeAllProductsCart: () => null
 })
 
 export default CartContext;

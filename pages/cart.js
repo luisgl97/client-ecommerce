@@ -4,6 +4,7 @@ import { getGameByUrlApi } from "../api/game";
 import useCart from "../hooks/useCart";
 import SummaryCart from "../components/Cart/SummaryCart";
 import AddressShipping from "../components/Cart/AddressShipping";
+import Payment from "../components/Cart/Payment";
 
 export default function cart() {
   const { getProductsCart } = useCart();
@@ -24,7 +25,7 @@ function FullCart(props) {
   const { products } = props;
   const [productsData, setProductsData] = useState(null);
   const [reloadCart, setReloadCart]=useState(false);
-  const [address, setAddresses]=useState(null);
+  const [address, setAddress]=useState(null);
   
   useEffect(() => {
     (async () => {
@@ -45,7 +46,8 @@ function FullCart(props) {
         reloadCart={reloadCart} 
         setReloadCart={setReloadCart} 
       />
-      <AddressShipping setAddresses = {setAddresses}/>
+      <AddressShipping setAddress = {setAddress}/>
+      {address && <Payment products={productsData} address={address}/>}
     </BasicLayout>
   )
 
